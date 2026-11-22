@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Applications — Pathway</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- HORIZONTAL NAVBAR WITH CSS DROPDOWNS         -->
+  <!-- ============================================ -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-icon">P</span>
+        <span>Pathway</span>
+        <span class="brand-tag">Tracker</span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Pipeline</a>
+        <a href="applications.html" class="nav-link active">Applications Table</a>
+        <a href="saved.html" class="nav-link">Saved Jobs</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button">
+            <span>Features</span>
+            <span>▾</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <div class="dropdown-header">Workflow & Detail</div>
+            <a href="application-detail.html" class="dropdown-item">Application Timeline</a>
+            <a href="saved.html" class="dropdown-item">Saved Items</a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-header">Administration</div>
+            <a href="moderation.html" class="dropdown-item">Admin Moderation</a>
+          </div>
+        </div>
+
+        <a href="profile.html" class="nav-link">Profile & Resume</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html#add-modal" class="btn btn-primary btn-sm">+ New Record</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button" style="padding: 4px;">
+            <div class="user-badge">
+              <span class="avatar">AK</span>
+              <span>Alex Kumar ▾</span>
+            </div>
+          </button>
+          <div class="nav-dropdown-menu dropdown-right">
+            <div class="dropdown-header">Signed in as alex.kumar@example.com</div>
+            <a href="profile.html" class="dropdown-item">Candidate Profile</a>
+            <a href="moderation.html" class="dropdown-item">Moderator Portal</a>
+            <div class="dropdown-divider"></div>
+            <a href="auth.html" class="dropdown-item">Switch User / Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================ -->
+  <!-- MAIN CONTENT: APPLICATIONS DATA TABLE       -->
+  <!-- ============================================ -->
+  <main class="page-container">
+
+    <div class="breadcrumb">
+      <a href="index.html">Dashboard</a>
+      <span>/</span>
+      <span>Applications Table</span>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Applications Directory</h1>
+        <p class="page-desc">Comprehensive list of all submitted, in-progress, and past recruitment records.</p>
+      </div>
+      <div>
+        <a href="index.html#add-modal" class="btn btn-primary">+ Add Application</a>
+      </div>
+    </div>
+
+    <!-- Filter Toolbar -->
+    <div class="toolbar-card">
+      <div class="toolbar-group">
+        <div class="search-input-wrap">
+          <input type="text" class="input-control" placeholder="Search records by company or role..." style="width: 100%;">
+        </div>
+
+        <select class="select-control">
+          <option>All Statuses (6)</option>
+          <option>Applied (2)</option>
+          <option>Screening (1)</option>
+          <option>Interviewing (1)</option>
+          <option>Offer (1)</option>
+          <option>Rejected (1)</option>
+        </select>
+
+        <select class="select-control">
+          <option>All Workplaces</option>
+          <option>Remote</option>
+          <option>Hybrid</option>
+          <option>On-site</option>
+        </select>
+
+        <a href="applications.html" class="btn btn-secondary btn-sm">Reset</a>
+      </div>
+
+      <!-- View Switcher -->
+      <div class="view-switch">
+        <a href="index.html" class="view-switch-btn">Grid Cards</a>
+        <a href="applications.html" class="view-switch-btn active">Table List</a>
+      </div>
+    </div>
+
+    <!-- Applications Structured Table -->
+    <div class="table-card">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Company & Role</th>
+            <th>Status</th>
+            <th>Workplace</th>
+            <th>Salary Range</th>
+            <th>Date Applied</th>
+            <th>Active Milestone</th>
+            <th class="text-right">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Row 1: Stripe -->
+          <tr>
+            <td>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div class="company-avatar" style="width: 30px; height: 30px; font-size: 11px;">S</div>
+                <div>
+                  <a href="application-detail.html" style="font-weight: 600; color: var(--text-main); font-size: 14px;">Staff Frontend Engineer</a>
+                  <div style="font-size: 12px; color: var(--text-muted);">Stripe • San Francisco, CA</div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <span class="status-badge badge-interviewing">Interviewing</span>
+            </td>
+            <td>
+              <span class="tag-pill">Remote</span>
+            </td>
+            <td style="font-family: var(--font-mono); font-size: 12px;">$190k - $220k</td>
+            <td style="color: var(--text-muted); font-size: 12px;">Nov 04, 2026</td>
+            <td style="font-size: 12px; color: var(--text-secondary);">System Design round scheduled</td>
+            <td class="text-right">
+              <a href="application-detail.html" class="btn btn-secondary btn-sm">Details →</a>
+            </td>
+          </tr>
+
+          <!-- Row 2: Figma -->
+          <tr>
+            <td>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div class="company-avatar" style="width: 30px; height: 30px; font-size: 11px;">F</div>
+                <div>
+                  <a href="application-detail.html" style="font-weight: 600; color: var(--text-main); font-size: 14px;">Senior UI Systems Engineer</a>
+                  <div style="font-size: 12px; color: var(--text-muted);">Figma • San Francisco, CA</div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <span class="status-badge badge-offer">Offer</span>
+            </td>
+            <td>
+              <span class="tag-pill">Hybrid</span>
+            </td>
+            <td style="font-family: var(--font-mono); font-size: 12px;">$185k - $210k</td>
+            <td style="color: var(--text-muted); font-size: 12px;">Oct 18, 2026</td>
+            <td style="font-size: 12px; color: var(--text-secondary); font-weight: 500;">Formal offer letter delivered</td>
+            <td class="text-right">
+              <a href="application-detail.html" class="btn btn-secondary btn-sm">Details →</a>
+            </td>
+          </tr>
+
+          <!-- Row 3: Linear -->
+          <tr>
+            <td>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div class="company-avatar" style="width: 30px; height: 30px; font-size: 11px;">L</div>
+                <div>
+                  <a href="application-detail.html" style="font-weight: 600; color: var(--text-main); font-size: 14px;">Product Engineer (Web)</a>
+                  <div style="font-size: 12px; color: var(--text-muted);">Linear • Remote</div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <span class="status-badge badge-screening">Screening</span>
+            </td>
+            <td>
+              <span class="tag-pill">Remote</span>
+            </td>
+            <td style="font-family: var(--font-mono); font-size: 12px;">$175k - $195k</td>
+            <td style="color: var(--text-muted); font-size: 12px;">Nov 10, 2026</td>
+            <td style="font-size: 12px; color: var(--text-secondary);">Hiring team reviewing code sample</td>
+            <td class="text-right">
+              <a href="application-detail.html" class="btn btn-secondary btn-sm">Details →</a>
+            </td>
+          </tr>
+
+          <!-- Row 4: Supabase -->
+          <tr>
+            <td>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div class="company-avatar" style="width: 30px; height: 30px; font-size: 11px;">S</div>
+                <div>
+                  <a href="application-detail.html" style="font-weight: 600; color: var(--text-main); font-size: 14px;">Developer Experience Engineer</a>
+                  <div style="font-size: 12px; color: var(--text-muted);">Supabase • Remote</div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <span class="status-badge badge-applied">Applied</span>
+            </td>
+            <td>
+              <span class="tag-pill">Remote</span>
+            </td>
+            <td style="font-family: var(--font-mono); font-size: 12px;">$160k - $180k</td>
+            <td style="color: var(--text-muted); font-size: 12px;">Nov 15, 2026</td>
+            <td style="font-size: 12px; color: var(--text-secondary);">Application sent via Greenhouse</td>
+            <td class="text-right">
+              <a href="application-detail.html" class="btn btn-secondary btn-sm">Details →</a>
+            </td>
+          </tr>
+
+          <!-- Row 5: Vercel -->
+          <tr>
+            <td>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div class="company-avatar" style="width: 30px; height: 30px; font-size: 11px;">V</div>
+                <div>
+                  <a href="application-detail.html" style="font-weight: 600; color: var(--text-main); font-size: 14px;">Frontend Infrastructure Lead</a>
+                  <div style="font-size: 12px; color: var(--text-muted);">Vercel • Remote</div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <span class="status-badge badge-applied">Applied</span>
+            </td>
+            <td>
+              <span class="tag-pill">Remote</span>
+            </td>
+            <td style="font-family: var(--font-mono); font-size: 12px;">$180k - $210k</td>
+            <td style="color: var(--text-muted); font-size: 12px;">Nov 16, 2026</td>
+            <td style="font-size: 12px; color: var(--text-secondary);">Application submitted</td>
+            <td class="text-right">
+              <a href="application-detail.html" class="btn btn-secondary btn-sm">Details →</a>
+            </td>
+          </tr>
+
+          <!-- Row 6: Datadog -->
+          <tr>
+            <td>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div class="company-avatar" style="width: 30px; height: 30px; font-size: 11px;">D</div>
+                <div>
+                  <a href="application-detail.html" style="font-weight: 600; color: var(--text-main); font-size: 14px;">Senior Software Engineer</a>
+                  <div style="font-size: 12px; color: var(--text-muted);">Datadog • New York, NY</div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <span class="status-badge badge-rejected">Archived</span>
+            </td>
+            <td>
+              <span class="tag-pill">Hybrid</span>
+            </td>
+            <td style="font-family: var(--font-mono); font-size: 12px;">$170k - $190k</td>
+            <td style="color: var(--text-muted); font-size: 12px;">Oct 02, 2026</td>
+            <td style="font-size: 12px; color: var(--text-secondary);">Closed internally</td>
+            <td class="text-right">
+              <a href="application-detail.html" class="btn btn-secondary btn-sm">Details →</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pure CSS UI Showcase: Loading Skeletons Demonstration -->
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Pathway — Clean Job Application Tracker</span>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Sign In & Registration — Pathway</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-color: var(--bg-page);">
+
+  <!-- ============================================ -->
+  <!-- HORIZONTAL NAVBAR WITH CSS DROPDOWNS         -->
+  <!-- ============================================ -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-icon">P</span>
+        <span>Pathway</span>
+        <span class="brand-tag">Tracker</span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Pipeline</a>
+        <a href="applications.html" class="nav-link">Applications Table</a>
+        <a href="saved.html" class="nav-link">Saved Jobs</a>
+        <a href="profile.html" class="nav-link">Profile & Resume</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html" class="btn btn-secondary btn-sm">← Back to Dashboard</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================ -->
+  <!-- AUTH CARD CONTAINER                          -->
+  <!-- ============================================ -->
+  <main class="page-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: calc(100vh - 160px);">
+
+    <div style="width: 100%; max-width: 440px;">
+
+      <!-- Top Icon / Branding -->
+      <div style="text-align: center; margin-bottom: 24px;">
+        <div class="brand-icon" style="width: 44px; height: 44px; font-size: 18px; margin: 0 auto 12px; border-radius: var(--radius-md);">P</div>
+        <h1 style="font-size: 20px; font-weight: 700; color: var(--text-main);">Welcome to Pathway</h1>
+        <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">Sign in to your candidate account or register a new profile.</p>
+      </div>
+
+      <!-- Demonstration: Success Alert Message -->
+      <div class="alert alert-info" style="margin-bottom: 16px;">
+        <span>ℹ</span>
+        <span>Demo user: <strong>alex.kumar@example.com</strong> / password: <strong>••••••••</strong></span>
+      </div>
+
+      <!-- Auth Card -->
+      <div class="card" style="padding: 28px;">
+
+        <!-- CSS-Only Tab Switcher (Uses radio buttons or links) -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; background: var(--bg-subtle); border-radius: var(--radius-sm); padding: 4px; gap: 4px; margin-bottom: 24px;">
+          <a href="#signin" class="btn btn-sm btn-secondary" style="background: #fff; font-weight: 600; box-shadow: var(--shadow-xs);">Sign In</a>
+          <a href="#register" class="btn btn-sm btn-ghost">Register</a>
+        </div>
+
+        <!-- Sign In Form with HTML5 Validation -->
+        <form action="index.html" method="GET">
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+
+            <div class="form-group">
+              <label class="form-label" for="loginEmail">Email Address <span class="req">*</span></label>
+              <input type="email" id="loginEmail" name="email" class="input-control" placeholder="name@company.com" value="alex.kumar@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <label class="form-label" for="loginPassword">Password <span class="req">*</span></label>
+                <a href="#" style="font-size: 11px; color: var(--accent-blue);">Forgot?</a>
+              </div>
+              <input type="password" id="loginPassword" name="password" class="input-control" placeholder="••••••••" value="demo12345" minlength="6" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="sessionRole">Account Role</label>
+              <select id="sessionRole" class="select-control">
+                <option value="candidate">Candidate (Job Seeker)</option>
+                <option value="moderator">Admin / Moderator</option>
+              </select>
+            </div>
+
+            <div style="margin-top: 8px;">
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In to Tracker</button>
+            </div>
+
+          </div>
+        </form>
+
+        <div style="text-align: center; margin-top: 20px; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border-light); padding-top: 16px;">
+          Need a recruiter portal? <a href="moderation.html" style="color: var(--text-main); font-weight: 500; text-decoration: underline;">Switch to Admin Moderation →</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Pathway — Clean Job Application Tracker</span>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile & Resume Management — Pathway</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- HORIZONTAL NAVBAR WITH CSS DROPDOWNS         -->
+  <!-- ============================================ -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-icon">P</span>
+        <span>Pathway</span>
+        <span class="brand-tag">Tracker</span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Pipeline</a>
+        <a href="applications.html" class="nav-link">Applications Table</a>
+        <a href="saved.html" class="nav-link">Saved Jobs</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button">
+            <span>Features</span>
+            <span>▾</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <div class="dropdown-header">Workflow & Detail</div>
+            <a href="application-detail.html" class="dropdown-item">Application Timeline</a>
+            <a href="saved.html" class="dropdown-item">Saved Items</a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-header">Administration</div>
+            <a href="moderation.html" class="dropdown-item">Admin Moderation</a>
+          </div>
+        </div>
+
+        <a href="profile.html" class="nav-link active">Profile & Resume</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html#add-modal" class="btn btn-primary btn-sm">+ New Record</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button" style="padding: 4px;">
+            <div class="user-badge">
+              <span class="avatar">AK</span>
+              <span>Alex Kumar ▾</span>
+            </div>
+          </button>
+          <div class="nav-dropdown-menu dropdown-right">
+            <div class="dropdown-header">Signed in as alex.kumar@example.com</div>
+            <a href="profile.html" class="dropdown-item active">Candidate Profile</a>
+            <a href="moderation.html" class="dropdown-item">Moderator Portal</a>
+            <div class="dropdown-divider"></div>
+            <a href="auth.html" class="dropdown-item">Switch User / Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================ -->
+  <!-- MAIN CONTENT: PROFILE & RESUME               -->
+  <!-- ============================================ -->
+  <main class="page-container">
+
+    <div class="breadcrumb">
+      <a href="index.html">Pipeline</a>
+      <span>/</span>
+      <span>Profile & Resume</span>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Candidate Profile & Resume</h1>
+        <p class="page-desc">Manage your professional contact details, portfolio links, and active resume attachment.</p>
+      </div>
+    </div>
+
+    <!-- Success Feedback Alert Banner -->
+    <div class="alert alert-success">
+      <span>✓</span>
+      <span>Profile information is up to date and verified against 6 submitted applications.</span>
+    </div>
+
+    <!-- 2-Column Profile Layout -->
+    <div class="detail-layout">
+
+      <!-- Left Column: Structured Profile Form -->
+      <div>
+        <div class="card">
+          <div class="card-title-row">
+            <div>
+              <h3 class="card-heading">Structured Candidate Details</h3>
+              <p style="font-size: 13px; color: var(--text-muted); margin-top: 2px;">Standard details automatically associated with application records.</p>
+            </div>
+            <span class="brand-tag">Verified</span>
+          </div>
+
+          <form action="profile.html" method="GET">
+            <div class="form-grid">
+
+              <div class="form-group">
+                <label class="form-label" for="profName">Full Name <span class="req">*</span></label>
+                <input type="text" id="profName" class="input-control" value="Alex Kumar" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="profEmail">Email Address <span class="req">*</span></label>
+                <input type="email" id="profEmail" class="input-control" value="alex.kumar@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="profPhone">Phone Number</label>
+                <input type="tel" id="profPhone" class="input-control" value="+1 (555) 234-8901">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="profLocation">Current Location</label>
+                <input type="text" id="profLocation" class="input-control" value="San Francisco, CA (Open to Remote)">
+              </div>
+
+              <div class="form-group span-full">
+                <label class="form-label" for="profHeadline">Professional Headline</label>
+                <input type="text" id="profHeadline" class="input-control" value="Staff Frontend Engineer • UI/UX Architecture & Design Systems">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="profSalary">Target Compensation</label>
+                <input type="text" id="profSalary" class="input-control" value="$180,000 - $210,000">
+                <span class="form-hint">Annual base salary range</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="profPortfolio">Portfolio URL</label>
+                <input type="url" id="profPortfolio" class="input-control" value="https://alexkumar.dev">
+              </div>
+
+              <div class="form-group span-full">
+                <label class="form-label" for="profLinkedIn">LinkedIn Profile</label>
+                <input type="url" id="profLinkedIn" class="input-control" value="https://linkedin.com/in/alexkumar-dev">
+              </div>
+
+              <div class="form-group span-full">
+                <label class="form-label" for="profSkills">Core Technical Competencies</label>
+                <input type="text" id="profSkills" class="input-control" value="TypeScript, React, Design Systems, Next.js, CSS Architecture, Web Performance, GraphQL">
+                <span class="form-hint">Comma-separated skill keywords</span>
+              </div>
+
+            </div>
+
+            <div style="margin-top: 24px; display: flex; align-items: center; justify-content: flex-end; gap: 10px;">
+              <button type="submit" class="btn btn-primary">Save Profile Changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right Column: Active Resume & Document Card -->
+      <div>
+
+        <!-- Resume Attachment Card -->
+        <div class="card">
+          <div class="card-title-row">
+            <h3 class="card-heading">Active Resume Document</h3>
+          </div>
+
+          <!-- Document Preview Item -->
+          <div style="display: flex; align-items: center; gap: 14px; background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 14px; margin-bottom: 16px;">
+            <div class="company-avatar" style="width: 44px; height: 44px; font-size: 14px; background: #fff;">PDF</div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-weight: 600; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Alex_Kumar_Staff_Frontend_2026.pdf</div>
+              <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">245 KB • Uploaded Nov 12, 2026</div>
+            </div>
+          </div>
+
+          <!-- Upload simulation dropzone -->
+          <div style="border: 1.5px dashed var(--border-strong); border-radius: var(--radius-sm); padding: 24px; text-align: center; cursor: pointer;">
+            <div style="font-size: 24px; color: var(--text-muted); margin-bottom: 6px;">📄</div>
+            <div style="font-size: 13px; font-weight: 600; color: var(--text-main);">Replace or Upload New Resume</div>
+            <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">PDF or DOCX format (Max 10MB)</div>
+            <label style="display: inline-block; margin-top: 12px;" class="btn btn-secondary btn-sm">
+              <span>Choose File</span>
+              <input type="file" style="display: none;" accept=".pdf,.doc,.docx">
+            </label>
+          </div>
+
+          <!-- Document metadata stats -->
+          <div style="margin-top: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 12px; color: var(--text-muted);">
+            <div style="display: flex; justify-content: space-between;">
+              <span>Attached to:</span>
+              <span style="font-weight: 600; color: var(--text-main);">All 6 active applications</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Current Revision:</span>
+              <span style="font-weight: 600; color: var(--text-main);">v4.2 (Production Ready)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Summary Card -->
+        <div class="card">
+          <h3 class="card-heading" style="margin-bottom: 12px;">Candidate Summary</h3>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
+            7+ years of experience specializing in frontend web infrastructure, component design systems, and high-performance user interfaces. Lead developer on multi-brand component libraries used across 4 enterprise applications.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Pathway — Clean Job Application Tracker</span>
+    </div>
+  </footer>
+
+</body>
+</html>

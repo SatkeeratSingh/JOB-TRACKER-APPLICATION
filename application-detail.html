@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stripe — Staff Frontend Engineer | Pathway</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- HORIZONTAL NAVBAR WITH CSS DROPDOWNS         -->
+  <!-- ============================================ -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-icon">P</span>
+        <span>Pathway</span>
+        <span class="brand-tag">Tracker</span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Pipeline</a>
+        <a href="applications.html" class="nav-link">Applications Table</a>
+        <a href="saved.html" class="nav-link">Saved Jobs</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button">
+            <span>Features</span>
+            <span>▾</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <div class="dropdown-header">Workflow & Detail</div>
+            <a href="application-detail.html" class="dropdown-item active">Application Timeline</a>
+            <a href="saved.html" class="dropdown-item">Saved Items</a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-header">Administration</div>
+            <a href="moderation.html" class="dropdown-item">Admin Moderation</a>
+          </div>
+        </div>
+
+        <a href="profile.html" class="nav-link">Profile & Resume</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html#add-modal" class="btn btn-primary btn-sm">+ New Record</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button" style="padding: 4px;">
+            <div class="user-badge">
+              <span class="avatar">AK</span>
+              <span>Alex Kumar ▾</span>
+            </div>
+          </button>
+          <div class="nav-dropdown-menu dropdown-right">
+            <div class="dropdown-header">Signed in as alex.kumar@example.com</div>
+            <a href="profile.html" class="dropdown-item">Candidate Profile</a>
+            <a href="moderation.html" class="dropdown-item">Moderator Portal</a>
+            <div class="dropdown-divider"></div>
+            <a href="auth.html" class="dropdown-item">Switch User / Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================ -->
+  <!-- MAIN DETAIL LAYOUT                           -->
+  <!-- ============================================ -->
+  <main class="page-container">
+
+    <div class="breadcrumb">
+      <a href="index.html">Pipeline</a>
+      <span>/</span>
+      <a href="applications.html">Applications</a>
+      <span>/</span>
+      <span>Stripe — Staff Frontend Engineer</span>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div class="company-avatar" style="width: 52px; height: 52px; font-size: 20px;">S</div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <h1 class="page-title" style="margin: 0;">Staff Frontend Engineer</h1>
+            <span class="status-badge badge-interviewing">● Interviewing</span>
+          </div>
+          <p class="page-desc">Stripe • San Francisco, CA (Open to Remote US/Canada)</p>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <a href="saved.html" class="btn btn-secondary btn-sm">★ Bookmark</a>
+        <a href="applications.html" class="btn btn-primary btn-sm">Back to List</a>
+      </div>
+    </div>
+
+    <!-- Success Feedback Alert Banner -->
+    <div class="alert alert-success">
+      <span>✓</span>
+      <span><strong>Interview Stage Active:</strong> System Architecture assessment confirmed for Thursday, Nov 19 at 2:00 PM PST.</span>
+    </div>
+
+    <!-- 2-Column Detail Layout -->
+    <div class="detail-layout">
+
+      <!-- Left Column: Timeline & Notes -->
+      <div>
+
+        <!-- Application Timeline Card -->
+        <div class="card">
+          <div class="card-title-row">
+            <div>
+              <h3 class="card-heading">Application Progression Timeline</h3>
+              <p style="font-size: 13px; color: var(--text-muted); margin-top: 2px;">Chronological audit of recruitment interactions and milestone events.</p>
+            </div>
+            <span class="brand-tag">Stage 3 of 5</span>
+          </div>
+
+          <!-- Vertical Timeline Steps -->
+          <div class="timeline">
+            <!-- Step 1: Initial Application -->
+            <div class="timeline-step completed">
+              <div class="timeline-marker">✓</div>
+              <div class="timeline-content">
+                <div class="timeline-content-header">
+                  <span class="timeline-stage-name">Application Submitted</span>
+                  <span class="timeline-date">Nov 04, 2026</span>
+                </div>
+                <p class="timeline-notes">
+                  Submitted via employee referral link from Elena Rostova (Senior Staff Engineer, Connect). Attached active profile resume v4.2.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 2: Recruiter Screen -->
+            <div class="timeline-step completed">
+              <div class="timeline-marker">✓</div>
+              <div class="timeline-content">
+                <div class="timeline-content-header">
+                  <span class="timeline-stage-name">Recruiter Introductory Screen</span>
+                  <span class="timeline-date">Nov 08, 2026</span>
+                </div>
+                <p class="timeline-notes">
+                  30-minute introductory call with Marcus Vance. Discussed compensation expectations ($190k-$220k base), team scope on the Checkout Experience group, and past leadership experience. Passed to technical loop.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 3: Current Technical Screen -->
+            <div class="timeline-step current">
+              <div class="timeline-marker">●</div>
+              <div class="timeline-content">
+                <div class="timeline-content-header">
+                  <span class="timeline-stage-name">Technical Architecture & System Design</span>
+                  <span class="timeline-date">Nov 14, 2026</span>
+                </div>
+                <p class="timeline-notes">
+                  60-minute session with Lead Architect. Focus on frontend state isolation, iframe security sandboxing for payment fields, and micro-frontend composition.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 4: Virtual Onsite (Upcoming) -->
+            <div class="timeline-step">
+              <div class="timeline-marker">○</div>
+              <div class="timeline-content">
+                <div class="timeline-content-header">
+                  <span class="timeline-stage-name">Virtual Onsite (4 Sessions)</span>
+                  <span class="timeline-date">Tentative Nov 24</span>
+                </div>
+                <p class="timeline-notes" style="color: var(--text-muted);">
+                  Coding pair-programming, API integration design, Cross-functional collaboration with Product Management, and Engineering Leadership interview.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 5: Final Decision -->
+            <div class="timeline-step">
+              <div class="timeline-marker">○</div>
+              <div class="timeline-content">
+                <div class="timeline-content-header">
+                  <span class="timeline-stage-name">Offer Decision & Compensation Review</span>
+                  <span class="timeline-date">Pending</span>
+                </div>
+                <p class="timeline-notes" style="color: var(--text-muted);">
+                  Final debrief and written offer generation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Candidate Notes Card -->
+        <div class="card">
+          <div class="card-title-row">
+            <h3 class="card-heading">Interview Preparation & Research Notes</h3>
+          </div>
+          <p style="font-size: 13px; line-height: 1.6; color: var(--text-secondary);">
+            Stripe's frontend architecture heavily leverages bespoke design systems and isolated components for PCI compliance. Reviewed their recent blog post on web performance metrics and zero-runtime CSS strategies. 
+            Key contacts highlighted that the role reports to the Director of Payments Engineering.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Metadata & Recruiter Info -->
+      <div>
+
+        <!-- Quick Specs Card -->
+        <div class="card">
+          <h3 class="card-heading" style="margin-bottom: 16px;">Application Specs</h3>
+          <div class="info-list">
+            <div class="info-item">
+              <span class="info-item-label">Target Compensation</span>
+              <span class="info-item-value" style="font-family: var(--font-mono);">$190,000 - $220,000 + Equity</span>
+            </div>
+
+            <div class="info-item">
+              <span class="info-item-label">Workplace Policy</span>
+              <span class="info-item-value">Remote (US Timezones)</span>
+            </div>
+
+            <div class="info-item">
+              <span class="info-item-label">Application Date</span>
+              <span class="info-item-value">November 04, 2026</span>
+            </div>
+
+            <div class="info-item">
+              <span class="info-item-label">Posting Link</span>
+              <a href="https://stripe.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue); font-size: 13px; font-weight: 500;">
+                careers.stripe.com/jobs/staff-frontend ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recruiter & Contact Card -->
+        <div class="card">
+          <h3 class="card-heading" style="margin-bottom: 14px;">Recruiter Contact</h3>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+            <div class="company-avatar" style="width: 38px; height: 38px;">MV</div>
+            <div>
+              <div style="font-weight: 600; font-size: 14px;">Marcus Vance</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Staff Technical Recruiter</div>
+            </div>
+          </div>
+          <div style="font-size: 13px; color: var(--text-secondary); background: var(--bg-subtle); padding: 8px 12px; border-radius: var(--radius-xs); border: 1px solid var(--border-color);">
+            ✉ mvance@stripe.com
+          </div>
+        </div>
+
+        <!-- Tech Stack Tags Card -->
+        <div class="card">
+          <h3 class="card-heading" style="margin-bottom: 12px;">Required Technologies</h3>
+          <div class="tags-row">
+            <span class="tag-pill">React</span>
+            <span class="tag-pill">TypeScript</span>
+            <span class="tag-pill">Design Systems</span>
+            <span class="tag-pill">Web Performance</span>
+            <span class="tag-pill">Accessibility (a11y)</span>
+            <span class="tag-pill">GraphQL</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Pathway — Clean Job Application Tracker</span>
+      <span>Pure HTML & CSS • No JavaScript Required</span>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pathway — Job Application Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- HORIZONTAL NAVBAR WITH CSS DROPDOWNS         -->
+  <!-- ============================================ -->
+  <header class="navbar">
+    <div class="nav-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="nav-brand">
+        <span class="brand-icon">P</span>
+        <span>Pathway</span>
+        <span class="brand-tag">Tracker</span>
+      </a>
+
+      <!-- Horizontal Menu Links & Dropdowns -->
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link active">Pipeline</a>
+        <a href="applications.html" class="nav-link">Applications Table</a>
+        <a href="saved.html" class="nav-link">Saved Jobs</a>
+
+        <!-- Feature Dropdown Menu (Pure CSS) -->
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button">
+            <span>Features</span>
+            <span>▾</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <div class="dropdown-header">Workflow & Detail</div>
+            <a href="application-detail.html" class="dropdown-item">
+              <span>Application Timeline</span>
+              <span class="brand-tag">Live</span>
+            </a>
+            <a href="saved.html" class="dropdown-item">Saved Items</a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-header">Administration</div>
+            <a href="moderation.html" class="dropdown-item">
+              <span>Admin Moderation</span>
+              <span class="brand-tag">Admin</span>
+            </a>
+          </div>
+        </div>
+
+        <a href="profile.html" class="nav-link">Profile & Resume</a>
+      </nav>
+
+      <!-- Nav Actions (Add record button & Profile dropdown) -->
+      <div class="nav-actions">
+        <!-- Opens Pure CSS Modal via #add-modal -->
+        <a href="#add-modal" class="btn btn-primary btn-sm">+ New Record</a>
+
+        <!-- User Profile Dropdown (Pure CSS) -->
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button" style="padding: 4px;">
+            <div class="user-badge">
+              <span class="avatar">AK</span>
+              <span>Alex Kumar ▾</span>
+            </div>
+          </button>
+          <div class="nav-dropdown-menu dropdown-right">
+            <div class="dropdown-header">Signed in as alex.kumar@example.com</div>
+            <a href="profile.html" class="dropdown-item">Candidate Profile</a>
+            <a href="moderation.html" class="dropdown-item">Moderator Portal</a>
+            <div class="dropdown-divider"></div>
+            <a href="auth.html" class="dropdown-item">Switch User / Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================ -->
+  <!-- MAIN PAGE CONTAINER                         -->
+  <!-- ============================================ -->
+  <main class="page-container">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Application Pipeline</h1>
+        <p class="page-desc">Track, organize, and advance your active job applications across interview stages.</p>
+      </div>
+      <div>
+        <a href="#add-modal" class="btn btn-primary">+ Add Application</a>
+      </div>
+    </div>
+
+    <!-- Stats Overview Strip -->
+    <div class="stats-grid">
+      <div class="stat-box">
+        <div class="stat-label">
+          <span>Total Applications</span>
+          <span class="stat-dot dot-blue"></span>
+        </div>
+        <div class="stat-number">6</div>
+        <div class="stat-subtext">Active career leads tracked</div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-label">
+          <span>In Interview</span>
+          <span class="stat-dot dot-amber"></span>
+        </div>
+        <div class="stat-number">2</div>
+        <div class="stat-subtext">Active screening & rounds</div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-label">
+          <span>Offers Received</span>
+          <span class="stat-dot dot-emerald"></span>
+        </div>
+        <div class="stat-number">1</div>
+        <div class="stat-subtext">Figma (Senior UI Systems)</div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-label">
+          <span>Response Rate</span>
+          <span class="stat-dot dot-gray"></span>
+        </div>
+        <div class="stat-number">50%</div>
+        <div class="stat-subtext">3 reached recruiter screen</div>
+      </div>
+    </div>
+
+    <!-- Filter & Search Toolbar -->
+    <div class="toolbar-card">
+      <form class="toolbar-group" action="applications.html" method="GET">
+        <div class="search-input-wrap">
+          <input type="text" name="q" class="input-control" placeholder="Search company, title, or skill..." style="width: 100%;">
+        </div>
+
+        <select name="status" class="select-control">
+          <option value="">All Statuses</option>
+          <option value="Applied">Applied</option>
+          <option value="Screening">Screening</option>
+          <option value="Interviewing">Interviewing</option>
+          <option value="Offer">Offer</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+
+        <select name="type" class="select-control">
+          <option value="">All Workplaces</option>
+          <option value="Remote">Remote</option>
+          <option value="Hybrid">Hybrid</option>
+          <option value="Onsite">On-site</option>
+        </select>
+
+        <select name="sort" class="select-control">
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+          <option value="company">Company (A-Z)</option>
+        </select>
+
+        <button type="submit" class="btn btn-secondary btn-sm">Filter</button>
+      </form>
+
+      <!-- View Switcher -->
+      <div class="view-switch">
+        <a href="index.html" class="view-switch-btn active">Grid Cards</a>
+        <a href="applications.html" class="view-switch-btn">Table List</a>
+      </div>
+    </div>
+
+    <!-- Job Cards Grid (Spacious, Breathable, Handcrafted Feel) -->
+    <div class="cards-grid">
+
+      <!-- Card 1: Stripe (Interviewing) -->
+      <div class="job-card">
+        <div>
+          <div class="card-top">
+            <div class="company-badge">
+              <div class="company-avatar">S</div>
+              <div class="company-meta">
+                <span class="company-name">Stripe</span>
+                <a href="application-detail.html" class="job-title">Staff Frontend Engineer</a>
+              </div>
+            </div>
+            <a href="saved.html" class="bookmark-icon saved" title="Saved opportunity">★</a>
+          </div>
+
+          <div class="card-middle" style="margin-top: 14px;">
+            <div class="tags-row">
+              <span class="tag-pill">Remote</span>
+              <span class="tag-pill">$190k - $220k</span>
+              <span class="tag-pill">React</span>
+              <span class="tag-pill">Design Systems</span>
+            </div>
+            <p class="card-notes" style="margin-top: 8px;">
+              System design interview scheduled for Thursday. Marcus Vance (Staff Recruiter) confirmed architecture focus on core payment checkout widgets.
+            </p>
+          </div>
+        </div>
+
+        <div class="card-bottom">
+          <span>Applied: Nov 04, 2026</span>
+          <span class="status-badge badge-interviewing">● Interviewing</span>
+        </div>
+      </div>
+
+      <!-- Card 2: Figma (Offer) -->
+      <div class="job-card">
+        <div>
+          <div class="card-top">
+            <div class="company-badge">
+              <div class="company-avatar">F</div>
+              <div class="company-meta">
+                <span class="company-name">Figma</span>
+                <a href="application-detail.html" class="job-title">Senior UI Systems Engineer</a>
+              </div>
+            </div>
+            <a href="saved.html" class="bookmark-icon" title="Save job">☆</a>
+          </div>
+
+          <div class="card-middle" style="margin-top: 14px;">
+            <div class="tags-row">
+              <span class="tag-pill">Hybrid</span>
+              <span class="tag-pill">San Francisco, CA</span>
+              <span class="tag-pill">$185k - $210k</span>
+              <span class="tag-pill">Design Tokens</span>
+            </div>
+            <p class="card-notes" style="margin-top: 8px;">
+              Formal offer letter received! Base $195k + equity grant. Reviewing compensation package with negotiation deadline set for Monday.
+            </p>
+          </div>
+        </div>
+
+        <div class="card-bottom">
+          <span>Applied: Oct 18, 2026</span>
+          <span class="status-badge badge-offer">● Offer Received</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Linear (Screening) -->
+      <div class="job-card">
+        <div>
+          <div class="card-top">
+            <div class="company-badge">
+              <div class="company-avatar">L</div>
+              <div class="company-meta">
+                <span class="company-name">Linear</span>
+                <a href="application-detail.html" class="job-title">Product Engineer (Web)</a>
+              </div>
+            </div>
+            <a href="saved.html" class="bookmark-icon saved" title="Saved opportunity">★</a>
+          </div>
+
+          <div class="card-middle" style="margin-top: 14px;">
+            <div class="tags-row">
+              <span class="tag-pill">Remote</span>
+              <span class="tag-pill">$175k - $195k</span>
+              <span class="tag-pill">TypeScript</span>
+              <span class="tag-pill">Sync Engine</span>
+            </div>
+            <p class="card-notes" style="margin-top: 8px;">
+              Cover note and component walkthrough demo submitted. Hiring team acknowledged receipt and is evaluating code sample.
+            </p>
+          </div>
+        </div>
+
+        <div class="card-bottom">
+          <span>Applied: Nov 10, 2026</span>
+          <span class="status-badge badge-screening">● Screening</span>
+        </div>
+      </div>
+
+      <!-- Card 4: Supabase (Applied) -->
+      <div class="job-card">
+        <div>
+          <div class="card-top">
+            <div class="company-badge">
+              <div class="company-avatar">S</div>
+              <div class="company-meta">
+                <span class="company-name">Supabase</span>
+                <a href="application-detail.html" class="job-title">Developer Experience Engineer</a>
+              </div>
+            </div>
+            <a href="saved.html" class="bookmark-icon" title="Save job">☆</a>
+          </div>
+
+          <div class="card-middle" style="margin-top: 14px;">
+            <div class="tags-row">
+              <span class="tag-pill">Remote</span>
+              <span class="tag-pill">$160k - $180k</span>
+              <span class="tag-pill">PostgreSQL</span>
+              <span class="tag-pill">Next.js</span>
+            </div>
+            <p class="card-notes" style="margin-top: 8px;">
+              Applied via careers portal. Attached open-source SDK contribution link and tailored resume for developer tooling.
+            </p>
+          </div>
+        </div>
+
+        <div class="card-bottom">
+          <span>Applied: Nov 15, 2026</span>
+          <span class="status-badge badge-applied">● Applied</span>
+        </div>
+      </div>
+
+      <!-- Card 5: Vercel (Applied) -->
+      <div class="job-card">
+        <div>
+          <div class="card-top">
+            <div class="company-badge">
+              <div class="company-avatar">V</div>
+              <div class="company-meta">
+                <span class="company-name">Vercel</span>
+                <a href="application-detail.html" class="job-title">Frontend Infrastructure Lead</a>
+              </div>
+            </div>
+            <a href="saved.html" class="bookmark-icon saved" title="Saved opportunity">★</a>
+          </div>
+
+          <div class="card-middle" style="margin-top: 14px;">
+            <div class="tags-row">
+              <span class="tag-pill">Remote</span>
+              <span class="tag-pill">$180k - $210k</span>
+              <span class="tag-pill">Turborepo</span>
+              <span class="tag-pill">CI/CD</span>
+            </div>
+            <p class="card-notes" style="margin-top: 8px;">
+              Submitted tailored portfolio covering Webpack to Turbopack migration metrics and build caching architecture.
+            </p>
+          </div>
+        </div>
+
+        <div class="card-bottom">
+          <span>Applied: Nov 16, 2026</span>
+          <span class="status-badge badge-applied">● Applied</span>
+        </div>
+      </div>
+
+      <!-- Card 6: Datadog (Rejected / Archived) -->
+      <div class="job-card">
+        <div>
+          <div class="card-top">
+            <div class="company-badge">
+              <div class="company-avatar">D</div>
+              <div class="company-meta">
+                <span class="company-name">Datadog</span>
+                <a href="application-detail.html" class="job-title">Senior Software Engineer</a>
+              </div>
+            </div>
+            <a href="saved.html" class="bookmark-icon" title="Save job">☆</a>
+          </div>
+
+          <div class="card-middle" style="margin-top: 14px;">
+            <div class="tags-row">
+              <span class="tag-pill">Hybrid</span>
+              <span class="tag-pill">New York, NY</span>
+              <span class="tag-pill">Observability</span>
+            </div>
+            <p class="card-notes" style="margin-top: 8px;">
+              Position filled through internal mobility. Recruiter offered to keep candidate profile flagged for upcoming Q1 infrastructure hiring.
+            </p>
+          </div>
+        </div>
+
+        <div class="card-bottom">
+          <span>Applied: Oct 02, 2026</span>
+          <span class="status-badge badge-rejected">● Archived</span>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ============================================ -->
+  <!-- PURE CSS MODAL: ADD RECORD (Targeted by #add-modal) -->
+  <!-- ============================================ -->
+  <div id="add-modal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 class="card-heading">Add New Application</h3>
+          <p class="card-notes" style="margin-top: 2px;">Record a company, open role, and key recruiter information.</p>
+        </div>
+        <!-- Close modal by pointing hash back to empty # -->
+        <a href="#" class="modal-close-btn" title="Close modal">&times;</a>
+      </div>
+
+      <form action="applications.html" method="GET">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="newCompany">Company Name <span class="req">*</span></label>
+            <input type="text" id="newCompany" name="company" class="input-control" placeholder="e.g. Stripe, Linear" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="newRole">Job Role / Title <span class="req">*</span></label>
+            <input type="text" id="newRole" name="role" class="input-control" placeholder="e.g. Senior Frontend Engineer" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="newStatus">Current Status <span class="req">*</span></label>
+            <select id="newStatus" name="status" class="select-control" required>
+              <option value="Applied">Applied</option>
+              <option value="Screening">Screening</option>
+              <option value="Interviewing">Interviewing</option>
+              <option value="Offer">Offer</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="newWorkType">Workplace Type</label>
+            <select id="newWorkType" name="workType" class="select-control">
+              <option value="Remote">Remote</option>
+              <option value="Hybrid">Hybrid</option>
+              <option value="Onsite">On-site</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="newLocation">Location</label>
+            <input type="text" id="newLocation" name="location" class="input-control" placeholder="e.g. San Francisco, CA">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="newSalary">Salary Range</label>
+            <input type="text" id="newSalary" name="salary" class="input-control" placeholder="e.g. $165k - $185k">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="newDate">Date Applied <span class="req">*</span></label>
+            <input type="date" id="newDate" name="date" class="input-control" value="2026-11-17" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="newUrl">Posting URL</label>
+            <input type="url" id="newUrl" name="url" class="input-control" placeholder="https://careers.company.com/job/123">
+          </div>
+
+          <div class="form-group span-full">
+            <label class="form-label" for="newNotes">Initial Notes</label>
+            <textarea id="newNotes" name="notes" class="textarea-control" placeholder="Referral source, interview milestones, tech requirements..."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <a href="#" class="btn btn-secondary">Cancel</a>
+          <button type="submit" class="btn btn-primary">Save Application</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Pathway — Clean Job Application Tracker</span>
+    </div>
+  </footer>
+
+</body>
+</html>
